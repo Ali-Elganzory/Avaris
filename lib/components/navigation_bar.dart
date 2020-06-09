@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import 'package:flare_flutter/flare_actor.dart';
-import 'package:flare_flutter/flare_controller.dart';
 
 import '../providers/navigation_provider.dart';
-import '../extensions/hover_extensions.dart';
 
 import '../utils/translate_on_hover.dart';
 
