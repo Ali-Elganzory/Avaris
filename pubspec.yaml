@@ -33,9 +33,6 @@ flutter:
   assets:
     - assets/flare/navigation_bar_highlight.flr
 
-    - assets/images/avaris_logo.png
-    - assets/images/test_pic.png
-
   fonts:
     - family: roboto
       fonts:
