@@ -19,43 +19,40 @@ class NavigationBar extends StatelessWidget {
         Provider.of<NavigationProvider>(context, listen: false);
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
       width: double.maxFinite,
-      height: 60,
+      height: 30,
       alignment: Alignment.center,
       child: Row(
         children: [
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Image.asset(
-                "images/avaris_logo.png",
-                fit: BoxFit.contain,
-              ),
+          Container(
+            width: 60,
+            child: Icon(
+              Icons.all_inclusive,
+              color: Colors.black,
+              size: 30,
             ),
           ),
-          Row(
-            children: [
-              for (final pageTitleAndRoute
-                  in _staticNavigationProvider.pageTitlesAndRoutes.entries)
-                IntrinsicWidth(
-                  child: NavigationBarItem(
-                    title: pageTitleAndRoute.key,
-                    route: pageTitleAndRoute.value,
-                  ),
-                ),
-            ],
-          ),
           Expanded(
-            child: Container(
-              margin: EdgeInsets.only(right: 30),
-              alignment: Alignment.centerRight,
-              child: IntrinsicWidth(
-                child: NavigationBarItem(
-                  title: "CONTACT",
-                  route: "/contact",
-                ),
+            child: SizedBox.expand(),
+          ),
+          for (final pageTitleAndRoute
+              in _staticNavigationProvider.pageTitlesAndRoutes.entries)
+            IntrinsicWidth(
+              child: NavigationBarItem(
+                title: pageTitleAndRoute.key,
+                route: pageTitleAndRoute.value,
               ),
+            ),
+          Expanded(
+            child: SizedBox.expand(),
+          ),
+          Container(
+            width: 60,
+            child: Icon(
+              Icons.all_inclusive,
+              color: Colors.black,
+              size: 30,
             ),
           ),
         ],
@@ -91,7 +88,7 @@ class NavigationBarItem extends StatelessWidget {
           fit: StackFit.loose,
           children: [
             FlareActor(
-              "assets/flare/navigation_bar_highlight.flr",
+              "flare/navigation_bar_highlight.flr",
               animation: newRoute == this.route ? "open" : null,
               fit: BoxFit.contain,
               controller: _flareController,
