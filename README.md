@@ -1,2 +1,0 @@
-# Avaris
- Avaris website
