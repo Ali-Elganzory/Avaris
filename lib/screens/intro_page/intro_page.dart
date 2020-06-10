@@ -8,6 +8,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellowAccent[400],
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
