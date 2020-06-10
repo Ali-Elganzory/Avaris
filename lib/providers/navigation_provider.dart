@@ -6,25 +6,38 @@ import '../screens/gallery_page/gallery_page.dart';
 import '../screens/maker_page/maker_page.dart';
 
 class NavigationProvider with ChangeNotifier {
+  static final GlobalKey<NavigatorState> navigatorKey =
+      GlobalKey<NavigatorState>();
 
-  static final String _homePage = IntroPage.routeName;
-  String _selectedPage = _homePage;
+  NavigationProvider({String initialRoute}) {
+    this._currentRoute = initialRoute;
+  }
 
-  String get selectedPage => this._selectedPage;
+  String _currentRoute;
 
-  set selectedPage(String route) {
-    if (this._selectedPage != route) {
-      this._selectedPage = route;
+  String get currentRoute => this._currentRoute;
+
+  set currentRoute(String route) {
+    if (this._currentRoute != route) {
+      goToRoute(route);
       notifyListeners();
     }
   }
 
+  Future<dynamic> goToRoute(String routeName) {
+    this._currentRoute = routeName;
+    return navigatorKey.currentState.pushNamed(routeName);
+  }
+
+  void goBack() {
+    return navigatorKey.currentState.pop();
+  }
+
   final Map<String, String> _pageTitlesAndRoutes = {
-    "INTRO" : IntroPage.routeName,
-    "GALLERY" : GalleryPage.routeName,
-    "MAKER" : MakerPage.routeName,
+    "INTRO": IntroPage.routeName,
+    "GALLERY": GalleryPage.routeName,
+    "MAKER": MakerPage.routeName,
   };
 
   Map<String, String> get pageTitlesAndRoutes => this._pageTitlesAndRoutes;
-
 }

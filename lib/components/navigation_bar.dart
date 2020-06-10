@@ -84,7 +84,7 @@ class NavigationBarItem extends StatelessWidget {
         Provider.of<NavigationProvider>(context, listen: false);
 
     return Selector<NavigationProvider, String>(
-      selector: (_, navigator) => navigator.selectedPage,
+      selector: (_, navigator) => navigator.currentRoute,
       builder: (_, newRoute, __) {
         return Stack(
           alignment: Alignment.center,
@@ -100,10 +100,8 @@ class NavigationBarItem extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: GestureDetector(
                 onTap: () {
-                  if (newRoute != this.route) {
-                    _staticNavigationProvider.selectedPage = this.route;
-                    Navigator.of(context).pushNamed(this.route);
-                  }
+                  if (newRoute != this.route)
+                    _staticNavigationProvider.currentRoute = this.route;
                 },
                 child: TranslateOnHover(
                   x: 0,
@@ -115,8 +113,8 @@ class NavigationBarItem extends StatelessWidget {
                     child: Text(
                       this.title,
                       style: TextStyle(
-                        fontFamily: "roboto",
-                        fontWeight: FontWeight.w500,
+                        fontFamily: "ginger",
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     onEnter: (e) {

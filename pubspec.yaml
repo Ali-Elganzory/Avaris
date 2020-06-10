@@ -37,6 +37,11 @@ flutter:
     - assets/images/test_pic.png
 
   fonts:
+    - family: ginger
+      fonts:
+        - asset: assets/fonts/Ginger-Bold.ttf
+          weight: 700
+
     - family: roboto
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf

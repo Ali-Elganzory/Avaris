@@ -8,7 +8,8 @@ class MakerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        color: Colors.blueAccent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
