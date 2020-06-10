@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './providers/navigation_provider.dart';
+import './providers/gallery_provider.dart';
 
 import 'screens/intro_page/intro_page.dart';
 import 'screens/gallery_page/gallery_page.dart';
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<NavigationProvider>(
           create: (ctx) => NavigationProvider(),
+        ),
+        ChangeNotifierProvider<GalleryProvider>(
+          create: (ctx) => GalleryProvider(),
         ),
       ],
       child: MaterialApp(
