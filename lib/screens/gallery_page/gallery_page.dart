@@ -20,18 +20,18 @@ class GalleryPage extends StatelessWidget {
         height: sh,
         child: Stack(
           children: <Widget>[
-            Positioned(
-              top: 0,
-              height: 0.2 * sh,
-              left: 0,
-              right: 0,
-              child: FlareActor(
-                "flare/hanging_lamp.flr",
-                animation: "open",
-                fit: BoxFit.contain,
-                // controller: _flareController,
-              ),
-            ),
+            // Positioned(
+            //   top: 0,
+            //   height: 0.2 * sh,
+            //   left: 0,
+            //   right: 0,
+            //   child: FlareActor(
+            //     "flare/hanging_lamp.flr",
+            //     animation: "open",
+            //     fit: BoxFit.contain,
+            //     // controller: _flareController,
+            //   ),
+            // ),
             Positioned(
               top: 0.2 * sh,
               bottom: 0,

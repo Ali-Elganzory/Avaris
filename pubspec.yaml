@@ -37,6 +37,11 @@ flutter:
     - assets/images/avaris_logo.png
     - assets/images/test_pic.png
 
+    - assets/images/phone-frame.png
+    - assets/images/routing.png
+    - assets/images/routing2.jpg
+
+
   fonts:
     - family: ginger
       fonts:
