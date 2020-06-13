@@ -4,126 +4,75 @@ import 'package:provider/provider.dart';
 import '../../providers/proposal_provider.dart';
 import '../../models/category.dart' as proposal;
 
-class DraggableWidget extends StatelessWidget {
-  DraggableWidget({
-    Key key,
-    @required this.i,
-  }) : super(key: key);
-
-  final int i;
-
-  proposal.CategoryItem item;
-
+class DraggableTile extends StatefulWidget {
+  final proposal.Category category;
+  DraggableTile({@required this.category});
   @override
-  Widget build(BuildContext context) {
-    print(
-        'List last index  is ${Provider.of<ProposalProvider>(context).itemsList.length - 1}');
-    return Draggable(
-      data: Provider.of<ProposalProvider>(context).itemsList[i],
-      childWhenDragging: Container(
-        height: 200.0,
-        width: 200.0,
-        child: Card(
-          elevation: 2.0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-          color: i >= 1 ? Colors.amber : Colors.grey,
-          child: Center(
-            child: Text(
-              i >= 1
-                  ? '${Provider.of<ProposalProvider>(context).itemsList.elementAt((Provider.of<ProposalProvider>(context).itemsList.length - 1) - 1).name}'
-                  : "NO_ITEMS_LEFT",
-              style: TextStyle(fontSize: 25.0, color: Colors.white),
-            ),
-          ),
-        ),
-      ),
-      feedback: Container(
-        height: 200.0,
-        width: 200.0,
-        child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-          elevation: 2.0,
-          color: Colors.amber,
-          child: Center(
-              child: Text(
-            '${Provider.of<ProposalProvider>(context).itemsList[i].name}',
-            style: TextStyle(fontSize: 25.0, color: Colors.white),
-          )),
-        ),
-      ),
-      child: Container(
-        height: 200.0,
-        width: 200.0,
-        child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-          elevation: 2.0,
-          color: Colors.amber,
-          child: Center(
-              child: Text(
-            '${Provider.of<ProposalProvider>(context).itemsList[i].name}',
-            style: TextStyle(fontSize: 25.0, color: Colors.white),
-          )),
-        ),
-      ),
-    );
-  }
+  _DraggableTileState createState() => _DraggableTileState();
 }
 
-class DraggableTile extends StatelessWidget {
+class _DraggableTileState extends State<DraggableTile> {
+  bool expanded = false;
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Draggable(
-      data: 5,
-      child: Container(
-        height: 200.0,
-        width: 200.0,
+    return MouseRegion(
+      onHover: (pointer) {
+        print(expanded);
+        setState(() {
+          expanded = true;
+        });
+      },
+      onExit: (pointer) {
+        print(expanded);
+        setState(() {
+          expanded = false;
+        });
+      },
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 500),
+        height: 200,
+        width: expanded ? 500 : 200,
         child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           elevation: 2.0,
           color: Colors.amber,
-          child: Center(
-            child: Text(
-              "Routing",
-              style: TextStyle(fontSize: 25.0, color: Colors.white),
-            ),
-          ),
+          child: !expanded
+              ? Center(
+                  child: Text(
+                    widget.category.name,
+                    style: TextStyle(fontSize: 25.0, color: Colors.white),
+                  ),
+                )
+              : ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  padding: EdgeInsets.only(left: 10),
+                  itemCount: widget.category.items.length,
+                  itemBuilder: (context, index) {
+                    return Draggable(
+                      data: 5,
+                      feedback: Container(
+                        height: 200.0,
+                        width: 200.0,
+                        child: Image.asset("images/routing2.jpg"),
+                      ),
+                      child: Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Center(
+                          child: Text(
+                            widget.category.items[index].name,
+                            style:
+                                TextStyle(fontSize: 25.0, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
         ),
       ),
-      feedback: Container(
-        height: 200.0,
-        width: 200.0,
-        child: Image.asset("images/routing2.jpg"),
-      ),
-
-      //  Draggable(
-      //   data: [1],
-      // child: Container(
-      //   height: 200.0,
-      //   width: 200.0,
-      //   child: Card(
-      //     shape:
-      //         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      //     elevation: 2.0,
-      //     color: Colors.amber,
-      //     child: Center(
-      //       child: Text(
-      //         "Routing",
-      //         style: TextStyle(fontSize: 25.0, color: Colors.white),
-      //       ),
-      //     ),
-      //   ),
-      // ),
-      // feedback: Container(
-      //   height: 200.0,
-      //   width: 200.0,
-      //   // child: Image.asset("images/routing2.jpg"),
-      //   child: Text("data"),
-      // ),
     );
   }
 }

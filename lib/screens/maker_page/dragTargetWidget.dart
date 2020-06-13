@@ -78,7 +78,6 @@ class Target extends StatelessWidget {
     print("Building");
     final sh = MediaQuery.of(context).size.height;
     final sw = MediaQuery.of(context).size.width;
-    // TODO: implement build
 
     return Center(
       child: DragTarget(

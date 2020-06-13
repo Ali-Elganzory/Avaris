@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../components/navigation_bar.dart';
+import '../../providers/proposal_provider.dart';
 import './dragTargetWidget.dart';
 import './draggableWidget.dart';
+import './category_tile.dart';
 
 class MakerPage extends StatelessWidget {
   static const String routeName = "/Maker";
@@ -21,7 +24,10 @@ class MakerPage extends StatelessWidget {
             Positioned(
               top: 100,
               left: 100,
-              child: DraggableTile(),
+              child: DraggableTile(
+                category: Provider.of<ProposalProvider>(context, listen: false)
+                    .itemsList[0],
+              ),
             ),
             Target(),
             NavigationBar(),
@@ -30,19 +36,4 @@ class MakerPage extends StatelessWidget {
       ),
     );
   }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-
-  //     body: Center(
-  //       child: Stack(
-  //         children: <Widget>[
-  //           Positioned(top: 100, left: 100, child: DraggableTile()),
-  //           Target(),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
 }

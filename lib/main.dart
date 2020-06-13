@@ -6,6 +6,7 @@ import './router.dart' as router;
 
 import './providers/navigation_provider.dart';
 import './providers/gallery_provider.dart';
+import './providers/proposal_provider.dart';
 
 import './screens/intro_page/intro_page.dart';
 
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<GalleryProvider>(
           create: (ctx) => GalleryProvider(),
+        ),
+        ChangeNotifierProvider<ProposalProvider>(
+          create: (ctx) => ProposalProvider(),
         ),
       ],
       child: MaterialApp(
