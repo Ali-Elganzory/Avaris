@@ -71,14 +71,8 @@ class DragTargetWidget extends StatelessWidget {
   }
 }
 
-class Target extends StatefulWidget {
-  @override
-  _TargetState createState() => _TargetState();
-}
-
-class _TargetState extends State<Target> {
+class Target extends StatelessWidget {
   bool val = false;
-
   @override
   Widget build(BuildContext context) {
     print("Building");
@@ -87,42 +81,31 @@ class _TargetState extends State<Target> {
     // TODO: implement build
 
     return Center(
-      child: Container(
-        height: sh,
-        width: sw,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              height: sh * 0.7,
-              width: sw * 0.3,
-              child: DragTarget(
-                builder: (context, acceptedData, rejectedData) {
-                  print(acceptedData);
-                  return Container(
-                    height: sh * 0.7,
-                    width: sw * 0.3,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            val ? acceptedData[0] : 'images/phone-frame.png'),
-                      ),
-                    ),
-                  );
-                },
-                onWillAccept: (data) {
-                  print("Hoverrrring");
-                  return true;
-                },
-                onAccept: (data) {
-                  print(data);
-                  print("adsasdaadasdassad");
-                  val = true;
-                },
+      child: DragTarget(
+        builder: (context, List<int> candidateData, rejectedData) {
+          print(candidateData);
+          return Container(
+            height: sh * 0.7,
+            width: sw * 0.3,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    !val ? 'images/phone-frame.png' : 'images/routing.png'),
               ),
             ),
-          ],
-        ),
+          );
+        },
+        onWillAccept: (data) {
+          return true;
+        },
+        onAccept: (data) {
+          val = true;
+          if (data % 2 == 0) {
+            print("Correct");
+          } else {
+            print("Wrong");
+          }
+        },
       ),
     );
   }

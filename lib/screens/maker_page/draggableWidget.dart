@@ -77,7 +77,7 @@ class DraggableTile extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Draggable(
-      data: ["images/routing.png"],
+      data: 5,
       child: Container(
         height: 200.0,
         width: 200.0,
@@ -99,6 +99,31 @@ class DraggableTile extends StatelessWidget {
         width: 200.0,
         child: Image.asset("images/routing2.jpg"),
       ),
+
+      //  Draggable(
+      //   data: [1],
+      // child: Container(
+      //   height: 200.0,
+      //   width: 200.0,
+      //   child: Card(
+      //     shape:
+      //         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      //     elevation: 2.0,
+      //     color: Colors.amber,
+      //     child: Center(
+      //       child: Text(
+      //         "Routing",
+      //         style: TextStyle(fontSize: 25.0, color: Colors.white),
+      //       ),
+      //     ),
+      //   ),
+      // ),
+      // feedback: Container(
+      //   height: 200.0,
+      //   width: 200.0,
+      //   // child: Image.asset("images/routing2.jpg"),
+      //   child: Text("data"),
+      // ),
     );
   }
 }

@@ -19,8 +19,8 @@ class MakerPage extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Positioned(
-              top: 300,
-              left: 200,
+              top: 100,
+              left: 100,
               child: DraggableTile(),
             ),
             Target(),
@@ -30,4 +30,19 @@ class MakerPage extends StatelessWidget {
       ),
     );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+
+  //     body: Center(
+  //       child: Stack(
+  //         children: <Widget>[
+  //           Positioned(top: 100, left: 100, child: DraggableTile()),
+  //           Target(),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 }
