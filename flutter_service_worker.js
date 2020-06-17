@@ -15,7 +15,7 @@ const RESOURCES = {
 "assets/assets/images/routing.png": "45faa7b29b87a81eb0b3f4f966eda36f",
 "assets/assets/images/routing2.jpg": "35ffa4b370590b61e48ae3ccbd69e5d4",
 "assets/assets/images/test_pic.png": "33274a71ccd45a0df7fcf110980dbbe6",
-"assets/flare/hanging_lamp.flr": "ec7e2b04c65c24a8cd37eab252b2a1ac",
+"assets/flare/hanging_lamp.flr": "dc1bcf5072898db7130d1ac23c84d8fc",
 "assets/flare/navigation_bar_highlight.flr": "60ce468ea76f6d7aabd5949105fa8c75",
 "assets/FontManifest.json": "72c87f0e991303ff70a34781197a3f92",
 "assets/fonts/Ginger-Bold.ttf": "2f9d3fa79cc1fd58f78ddbe9b19b99fc",
