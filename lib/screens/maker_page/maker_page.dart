@@ -24,9 +24,59 @@ class MakerPage extends StatelessWidget {
             Positioned(
               top: 100,
               left: 100,
-              child: DraggableTile(
-                category: Provider.of<ProposalProvider>(context, listen: false)
-                    .itemsList[0],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DraggableTile(
+                    category:
+                        Provider.of<ProposalProvider>(context, listen: false)
+                            .itemsList[0],
+                  ),
+                  DraggableTile(
+                    category:
+                        Provider.of<ProposalProvider>(context, listen: false)
+                            .itemsList[1],
+                  ),
+                  DraggableTile(
+                    category:
+                        Provider.of<ProposalProvider>(context, listen: false)
+                            .itemsList[2],
+                  ),
+                  DraggableTile(
+                    category:
+                        Provider.of<ProposalProvider>(context, listen: false)
+                            .itemsList[3],
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              top: 100,
+              right: 100,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  DraggableTile(
+                    category:
+                        Provider.of<ProposalProvider>(context, listen: false)
+                            .itemsList[0],
+                  ),
+                  DraggableTile(
+                    category:
+                        Provider.of<ProposalProvider>(context, listen: false)
+                            .itemsList[1],
+                  ),
+                  DraggableTile(
+                    category:
+                        Provider.of<ProposalProvider>(context, listen: false)
+                            .itemsList[2],
+                  ),
+                  DraggableTile(
+                    category:
+                        Provider.of<ProposalProvider>(context, listen: false)
+                            .itemsList[3],
+                  ),
+                ],
               ),
             ),
             Target(),

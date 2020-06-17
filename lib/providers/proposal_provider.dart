@@ -43,10 +43,56 @@ class ProposalProvider extends ChangeNotifier {
           description: "Routing5 is bla bla",
         ),
         proposal.CategoryItem(
-          name: "Routing5",
+          name: "Routing6",
           image: "fds",
           weight: 8.9,
-          description: "Routing5 is bla bla",
+          description: "Routing6 is bla bla",
+        ),
+      ],
+    ),
+    proposal.Category(
+      name: "Maps3",
+      items: [
+        proposal.CategoryItem(
+          name: "Routing7",
+          image: "fds",
+          weight: 1.0,
+          description: "Routing7 is bla bla",
+        ),
+        proposal.CategoryItem(
+          name: "Routing8",
+          image: "fds",
+          weight: 6.75,
+          description: "Routing8 is bla bla",
+        ),
+        proposal.CategoryItem(
+          name: "Routing9",
+          image: "fds",
+          weight: 8.9,
+          description: "Routing9 is bla bla",
+        ),
+      ],
+    ),
+    proposal.Category(
+      name: "Maps4",
+      items: [
+        proposal.CategoryItem(
+          name: "Routing10",
+          image: "fds",
+          weight: 1.0,
+          description: "Routing10 is bla bla",
+        ),
+        proposal.CategoryItem(
+          name: "Routing11",
+          image: "fds",
+          weight: 6.75,
+          description: "Routing11 is bla bla",
+        ),
+        proposal.CategoryItem(
+          name: "Routing12",
+          image: "fds",
+          weight: 8.9,
+          description: "Routing12 is bla bla",
         ),
       ],
     ),

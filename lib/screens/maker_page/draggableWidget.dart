@@ -31,8 +31,8 @@ class _DraggableTileState extends State<DraggableTile> {
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 500),
-        height: 200,
-        width: expanded ? 500 : 200,
+        height: 150,
+        width: expanded ? 500 : 150,
         child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -45,31 +45,33 @@ class _DraggableTileState extends State<DraggableTile> {
                     style: TextStyle(fontSize: 25.0, color: Colors.white),
                   ),
                 )
-              : ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  padding: EdgeInsets.only(left: 10),
-                  itemCount: widget.category.items.length,
-                  itemBuilder: (context, index) {
-                    return Draggable(
-                      data: 5,
-                      feedback: Container(
-                        height: 200.0,
-                        width: 200.0,
-                        child: Image.asset("images/routing2.jpg"),
-                      ),
-                      child: Container(
-                        margin: EdgeInsets.only(left: 10),
-                        child: Center(
-                          child: Text(
-                            widget.category.items[index].name,
-                            style:
-                                TextStyle(fontSize: 25.0, color: Colors.white),
+              : Center(
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    padding: EdgeInsets.only(left: 10),
+                    itemCount: widget.category.items.length,
+                    itemBuilder: (context, index) {
+                      return Draggable(
+                        data: 5,
+                        feedback: Container(
+                          height: 200.0,
+                          width: 200.0,
+                          child: Image.asset("images/routing2.jpg"),
+                        ),
+                        child: Container(
+                          margin: EdgeInsets.only(left: 10),
+                          child: Center(
+                            child: Text(
+                              widget.category.items[index].name,
+                              style: TextStyle(
+                                  fontSize: 25.0, color: Colors.white),
+                            ),
                           ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
         ),
       ),
