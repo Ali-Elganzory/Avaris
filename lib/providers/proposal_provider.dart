@@ -9,19 +9,19 @@ class ProposalProvider extends ChangeNotifier {
       items: [
         proposal.CategoryItem(
           name: "Routing1",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 5.0,
           description: "Routing1 is bla bla",
         ),
         proposal.CategoryItem(
           name: "Routing2",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 6.0,
           description: "Routing2 is bla bla",
         ),
         proposal.CategoryItem(
           name: "Routing3",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 3.0,
           description: "Routing3 is bla bla",
         ),
@@ -32,19 +32,19 @@ class ProposalProvider extends ChangeNotifier {
       items: [
         proposal.CategoryItem(
           name: "Routing4",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 1.0,
           description: "Routing4 is bla bla",
         ),
         proposal.CategoryItem(
           name: "Routing5",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 6.75,
           description: "Routing5 is bla bla",
         ),
         proposal.CategoryItem(
           name: "Routing6",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 8.9,
           description: "Routing6 is bla bla",
         ),
@@ -55,19 +55,19 @@ class ProposalProvider extends ChangeNotifier {
       items: [
         proposal.CategoryItem(
           name: "Routing7",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 1.0,
           description: "Routing7 is bla bla",
         ),
         proposal.CategoryItem(
           name: "Routing8",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 6.75,
           description: "Routing8 is bla bla",
         ),
         proposal.CategoryItem(
           name: "Routing9",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 8.9,
           description: "Routing9 is bla bla",
         ),
@@ -78,19 +78,19 @@ class ProposalProvider extends ChangeNotifier {
       items: [
         proposal.CategoryItem(
           name: "Routing10",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 1.0,
           description: "Routing10 is bla bla",
         ),
         proposal.CategoryItem(
           name: "Routing11",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 6.75,
           description: "Routing11 is bla bla",
         ),
         proposal.CategoryItem(
           name: "Routing12",
-          image: "fds",
+          image: 'images/routing.png',
           weight: 8.9,
           description: "Routing12 is bla bla",
         ),
@@ -101,33 +101,24 @@ class ProposalProvider extends ChangeNotifier {
 
   proposal.CategoryItem acceptedData;
 
-  bool isEmpty;
-  bool successDrop;
+  bool _isEmpty = true;
 
-  Data() {
-    successDrop = false;
+  bool get isEmpty => _isEmpty;
 
-    //Intialize Categories
+  set isEmpty(bool val) {
+    _isEmpty = val;
+    notifyListeners();
   }
-
-  bool get isSuccessDrop => successDrop;
 
   List<proposal.Category> get itemsList => _categories;
 
   proposal.CategoryItem get getAcceptedData => acceptedData;
 
-  set setSuccessDrop(bool status) {
-    successDrop = status;
-    notifyListeners();
-  }
+  List<proposal.CategoryItem> get selectedItems => _selectedItems;
 
   changeAcceptedData(proposal.CategoryItem data) {
     acceptedData = data;
     notifyListeners();
-  }
-
-  changeSuccessDrop(bool status) {
-    setSuccessDrop = status;
   }
 
   removeItem(proposal.CategoryItem item, String name) {
@@ -139,9 +130,4 @@ class ProposalProvider extends ChangeNotifier {
     _selectedItems.add(item);
     notifyListeners();
   }
-
-  // initializeDraggableList() {
-  //   items = Constants.initializeList(items);
-  //   notifyListeners();
-  // }
 }

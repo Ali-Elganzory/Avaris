@@ -5,7 +5,6 @@ import '../../components/navigation_bar.dart';
 import '../../providers/proposal_provider.dart';
 import './dragTargetWidget.dart';
 import './draggableWidget.dart';
-import './category_tile.dart';
 
 class MakerPage extends StatelessWidget {
   static const String routeName = "/Maker";
@@ -79,7 +78,23 @@ class MakerPage extends StatelessWidget {
                 ],
               ),
             ),
-            Target(),
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Target(),
+                  Container(
+                    height: 50,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  )
+                ],
+              ),
+            ),
             NavigationBar(),
           ],
         ),

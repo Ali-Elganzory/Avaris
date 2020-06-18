@@ -18,13 +18,13 @@ class _DraggableTileState extends State<DraggableTile> {
   Widget build(BuildContext context) {
     return MouseRegion(
       onHover: (pointer) {
-        print(expanded);
+        // print(expanded);
         setState(() {
           expanded = true;
         });
       },
       onExit: (pointer) {
-        print(expanded);
+        // print(expanded);
         setState(() {
           expanded = false;
         });
@@ -53,7 +53,7 @@ class _DraggableTileState extends State<DraggableTile> {
                     itemCount: widget.category.items.length,
                     itemBuilder: (context, index) {
                       return Draggable(
-                        data: 5,
+                        data: widget.category.items[index].image,
                         feedback: Container(
                           height: 200.0,
                           width: 200.0,
@@ -61,12 +61,23 @@ class _DraggableTileState extends State<DraggableTile> {
                         ),
                         child: Container(
                           margin: EdgeInsets.only(left: 10),
-                          child: Center(
-                            child: Text(
-                              widget.category.items[index].name,
-                              style: TextStyle(
-                                  fontSize: 25.0, color: Colors.white),
-                            ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 50.0,
+                                width: 50.0,
+                                child: Image.asset(
+                                  "images/routing2.jpg",
+                                  fit: BoxFit.fitWidth,
+                                ),
+                              ),
+                              Text(
+                                widget.category.items[index].name,
+                                style: TextStyle(
+                                    fontSize: 25.0, color: Colors.white),
+                              ),
+                            ],
                           ),
                         ),
                       );
